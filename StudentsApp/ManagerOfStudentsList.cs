@@ -60,5 +60,12 @@ namespace StudentsApp
             }
             return dictionary;
         }
+
+        public void GiveTasksToStudent(Student student)
+        {
+            student.GetTasksList();
+            student.CompleteTasks(student.TasksList);
+        }
+
     }
 }

@@ -16,6 +16,7 @@ namespace StudentsApp
             manager.Add(new Student("John", "Dowson", "physics", 5, 1));
             Student st2 = manager.GetStudent("Tom", "Smith");
             manager.DisplayStudentsList();
+            manager.GiveTasksToStudent(st1);
         }
     }
 }
