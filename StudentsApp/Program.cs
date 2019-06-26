@@ -14,6 +14,7 @@ namespace StudentsApp
             ManagerOfStudentsList manager = new ManagerOfStudentsList();
             manager.Add(st1);
             manager.Add(new Student("John", "Dowson", "physics", 5, 1));
+            Student st2 = manager.GetStudent("Tom", "Smith");
             manager.DisplayStudentsList();
         }
     }

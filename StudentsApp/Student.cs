@@ -18,7 +18,7 @@ namespace StudentsApp
 
         public int Group { get; set; }
 
-        public StringBuilder StudentData { get; set; }
+        public string StudentData { get; set; }
 
         public Student(string firstName, string lastName, string faculty, int course, int group)
         {
@@ -27,7 +27,7 @@ namespace StudentsApp
             this.Faculty = faculty;
             this.Course = course;
             this.Group = group;
-            StudentData = new StringBuilder(String.Format("{0,15} {1,15} {2,15} {3,15} {4,15}", firstName, lastName, faculty, course, group));
+            StudentData = String.Format("{0,15} {1,15} {2,15} {3,15} {4,15}", firstName, lastName, faculty, course, group);
         }
     }
 }

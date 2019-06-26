@@ -10,11 +10,12 @@ namespace StudentsApp
     {
         public List<Student> StudentsList { get; set; }
 
-        public StringBuilder Header { get; set; }
+        private string headerOfTable;
 
         public ManagerOfStudentsList()
         {
             this.StudentsList = new List<Student>();
+            this.headerOfTable = String.Format("{0,15} {1,15} {2,15} {3,15} {4,15}", "First Name", "Last Name", "Faculty", "Course", "Group");
         }
 
         public void Add(Student student)
@@ -36,12 +37,28 @@ namespace StudentsApp
         public void DisplayStudentsList()
         {
             Console.WriteLine($"There're {StudentsList.Count} students.");
-            Header = new StringBuilder(String.Format("{0,15} {1,15} {2,15} {3,15} {4,15}", "First Name", "Last Name", "Faculty", "Course", "Group"));
-            Console.WriteLine(Header);
+            Console.WriteLine(headerOfTable);
             foreach (var student in StudentsList)
             {
                 Console.WriteLine(student.StudentData);
             }
+        }
+
+        public Student GetStudent(string firstName, string lastName)
+        {
+            Dictionary<string, Student> studentsDictionary = InitializeDictionary();
+            studentsDictionary.TryGetValue(firstName + lastName, out Student student);
+            return student;
+        }
+
+        private Dictionary<string, Student> InitializeDictionary()
+        {
+            Dictionary<string, Student> dictionary = new Dictionary<string, Student>();
+            foreach (var student in this.StudentsList)
+            {
+                dictionary.Add(student.FirstName + student.LastName, student);
+            }
+            return dictionary;
         }
     }
 }
