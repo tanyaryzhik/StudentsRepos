@@ -29,13 +29,16 @@ namespace StudentsApp
         {
             if (student is null)
                 throw new ArgumentNullException();
-            if (!this.StudentsList.Contains(student))
-                throw new ArgumentException();
             this.StudentsList.Remove(student);
         }
 
         public void DisplayStudentsList()
         {
+            if (this.StudentsList.Count == 0)
+            {
+                Console.WriteLine("No list to display");
+                return;
+            }
             Console.WriteLine($"There're {StudentsList.Count} students.");
             Console.WriteLine(headerOfTable);
             foreach (var student in StudentsList)
@@ -46,8 +49,18 @@ namespace StudentsApp
 
         public Student GetStudent(string firstName, string lastName)
         {
+            if (this.StudentsList.Count == 0)
+            {
+                Console.WriteLine("No list to display");
+                return null;
+            }
             Dictionary<string, Student> studentsDictionary = InitializeDictionary();
-            studentsDictionary.TryGetValue(firstName + lastName, out Student student);
+            bool isFound = studentsDictionary.TryGetValue(firstName + lastName, out Student student);
+            if (!isFound)
+            {
+                Console.WriteLine("There's no student with such a name.");
+                return null;
+            }
             return student;
         }
 

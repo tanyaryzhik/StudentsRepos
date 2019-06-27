@@ -49,6 +49,8 @@ namespace StudentsApp
                     IsListFinshed = true;
                     continue;
                 }
+                if (String.IsNullOrEmpty(task))
+                    continue;
                 TasksList.Enqueue(task);
             }
         }
@@ -75,6 +77,8 @@ namespace StudentsApp
                     IsListFinshed = true;
                     continue;
                 }
+                if (String.IsNullOrEmpty(book))
+                    continue;
                 BooksList.Push(book);
                 Console.WriteLine($"{book} is recieved");
             }
