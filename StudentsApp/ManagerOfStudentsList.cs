@@ -49,18 +49,8 @@ namespace StudentsApp
 
         public Student GetStudent(string firstName, string lastName)
         {
-            if (this.StudentsList.Count == 0)
-            {
-                Console.WriteLine("No list to display");
-                return null;
-            }
             Dictionary<string, Student> studentsDictionary = InitializeDictionary();
             bool isFound = studentsDictionary.TryGetValue(firstName + lastName, out Student student);
-            if (!isFound)
-            {
-                Console.WriteLine("There's no student with such a name.");
-                return null;
-            }
             return student;
         }
 
@@ -79,6 +69,5 @@ namespace StudentsApp
             student.GetTasksList();
             student.CompleteTasks(student.TasksList);
         }
-
     }
 }
