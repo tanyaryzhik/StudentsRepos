@@ -33,20 +33,20 @@ namespace StudentsApp
             this.Group = group;
             this.TasksList = new Queue<string>();
             this.BooksList = new Stack<string>();
-            StudentData = String.Format("{0,15} {1,15} {2,15} {3,15} {4,15}", firstName, lastName, faculty, course, group);
+            this.StudentData = String.Format("{0,15} {1,15} {2,15} {3,15} {4,15}", firstName, lastName, faculty, course, group);
         }
 
         public void GetTasksList()
         {
             Console.WriteLine("Enter tasks. When list is full press spacebar");
-            bool IsListFinshed = false;
+            bool isListFinshed = false;
             string task = string.Empty;
-            while(!IsListFinshed)
+            while(!isListFinshed)
             {
                 task = Console.ReadLine();
                 if (task == " ")
                 {
-                    IsListFinshed = true;
+                    isListFinshed = true;
                     continue;
                 }
                 if (String.IsNullOrEmpty(task))
@@ -67,14 +67,14 @@ namespace StudentsApp
         public void GetBooks()
         {
             Console.WriteLine("What books do you want to take? When list is full press spacebar");
-            bool IsListFinshed = false;
+            bool isListFinshed = false;
             string book = string.Empty;
-            while (!IsListFinshed)
+            while (!isListFinshed)
             {
                 book = Console.ReadLine();
                 if (book == " ")
                 {
-                    IsListFinshed = true;
+                    isListFinshed = true;
                     continue;
                 }
                 if (String.IsNullOrEmpty(book))
