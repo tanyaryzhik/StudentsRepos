@@ -13,7 +13,6 @@ namespace StudentsApp
             Student st1 = new Student("Tom", "Smith", "math", 1, 2);
             ManagerOfStudentsList manager = new ManagerOfStudentsList();
             //manager.Add(st1);
-            //manager.Add(new Student("John", "Dowson", "physics", 5, 1));
             //Student st2 = manager.GetStudent("Tom", "Smit");
             manager.DisplayStudentsList();
             //manager.GiveTasksToStudent(st1);
