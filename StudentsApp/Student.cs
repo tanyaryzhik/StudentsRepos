@@ -44,14 +44,17 @@ namespace StudentsApp
             while(!isListFinshed)
             {
                 task = Console.ReadLine();
+
                 if (task == " ")
                 {
                     isListFinshed = true;
                     continue;
                 }
+
                 if (String.IsNullOrEmpty(task))
                     continue;
-                TasksList.Enqueue(task);
+
+                this.TasksList.Enqueue(task);
             }
         }
 
@@ -72,14 +75,17 @@ namespace StudentsApp
             while (!isListFinshed)
             {
                 book = Console.ReadLine();
+
                 if (book == " ")
                 {
                     isListFinshed = true;
                     continue;
                 }
+
                 if (String.IsNullOrEmpty(book))
                     continue;
-                BooksList.Push(book);
+
+                this.BooksList.Push(book);
                 Console.WriteLine($"{book} is recieved");
             }
         }
